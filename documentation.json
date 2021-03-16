@@ -294,6 +294,70 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "TestComponent",
+            "id": "component-TestComponent-e9705ea201342052d8577030703c7c0a",
+            "file": "src/app/components/test/test.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-test",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p>\n  test works!\n</p>\n\nLabel: {{ label }}\n<br />\nLoading: {{ loading }}\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "defaultValue": "'This is a label'",
+                    "line": 22
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "true",
+                    "line": 24
+                },
+                {
+                    "name": "testEnum",
+                    "defaultValue": "TestValues.Primary",
+                    "line": 26,
+                    "type": "TestValues"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nenum TestValues {\n  Primary,\n  Secondary,\n}\n\n@Component({\n  selector: 'app-test',\n  template: `\n    <p>\n      test works!\n    </p>\n\n    Label: {{ label }}\n    <br />\n    Loading: {{ loading }}\n  `,\n  styles: [],\n})\nexport class TestComponent implements OnInit {\n  @Input() label = 'This is a label';\n\n  @Input() loading = true;\n\n  @Input() testEnum: TestValues = TestValues.Primary;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 26
+            },
+            "implements": [
+                "OnInit"
+            ]
         }
     ],
     "modules": [
@@ -309,6 +373,9 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "TestComponent"
                         }
                     ]
                 },
@@ -435,10 +502,26 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "matSlider",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/mat-slider.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n    <mat-slider min=\"1\" max=\"100\" step=\"1\" value=\"1\">\r\n    </mat-slider>\r\n  `,\r\n})"
+            },
+            {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/test/test.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -490,17 +573,41 @@
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/test/test.stories.ts",
+                "type": "Story<TestComponent>",
+                "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  props: args,\r\n})"
+            },
+            {
                 "name": "WithTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/test.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
+                "file": "src/app/components/test/test.stories.ts",
+                "type": "Story<TestComponent>",
+                "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `\r\n    <app-test [label]=\"label\" [loading]=\"loading\"></app-test>\r\n`,\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "TestValues",
+                "childs": [
+                    {
+                        "name": "Primary"
+                    },
+                    {
+                        "name": "Secondary"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "description": "",
+                "file": "src/app/components/test/test.component.ts"
+            }
+        ],
         "groupedVariables": {
             "src/test.ts": [
                 {
@@ -633,19 +740,63 @@
                     "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
                 }
             ],
-            "src/app/test.stories.ts": [
+            "src/app/stories/mat-slider.stories.ts": [
+                {
+                    "name": "matSlider",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/mat-slider.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n    <mat-slider min=\"1\" max=\"100\" step=\"1\" value=\"1\">\r\n    </mat-slider>\r\n  `,\r\n})"
+                }
+            ],
+            "src/app/components/test/test.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "Story<TestComponent>",
+                    "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  props: args,\r\n})"
+                },
                 {
                     "name": "WithTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/test.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "Story<TestComponent>",
+                    "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `\r\n    <app-test [label]=\"label\" [loading]=\"loading\"></app-test>\r\n`,\r\n  props: args,\r\n})"
                 }
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "src/app/components/test/test.component.ts": [
+                {
+                    "name": "TestValues",
+                    "childs": [
+                        {
+                            "name": "Primary"
+                        },
+                        {
+                            "name": "Secondary"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "description": "",
+                    "file": "src/app/components/test/test.component.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {}
     },
     "routes": {
@@ -685,11 +836,50 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/test.stories.ts",
+                "filePath": "src/app/components/test/test.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TestComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/test/test.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/test/test.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/test/test.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "WithTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/mat-slider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "matSlider",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
