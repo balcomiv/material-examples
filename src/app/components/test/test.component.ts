@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-enum TestValues {
+export enum TestValues {
   Primary,
   Secondary,
 }

@@ -1,13 +1,14 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
-import { TestComponent } from './test.component';
+import { convertEnumToList } from '../../../../.storybook/utils';
+import { TestComponent, TestValues } from './test.component';
 
 export default {
   title: 'Test Story',
   component: TestComponent,
   decorators: [
     moduleMetadata({
-      declarations: [TestComponent],
+      declarations: [],
       imports: [],
     }),
   ],
@@ -32,9 +33,13 @@ export const WithTemplate: Story<TestComponent> = (args: TestComponent) => ({
 `,
   props: args,
 });
-// WithTemplate.argTypes = {
-//   label: { control: { type: 'radio', options: TestValues } },
-// };
+
+const listValues = convertEnumToList(TestValues);
+WithTemplate.argTypes = {
+  label: {
+    control: { type: 'select', options: listValues },
+  },
+};
 WithTemplate.args = {
   loading: false,
   label: 'Button',
