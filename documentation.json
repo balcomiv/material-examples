@@ -1,7 +1,53 @@
 {
     "pipes": [],
     "interfaces": [],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "TestService",
+            "id": "injectable-TestService-1340c9959d389d216d48f39b169c88d3",
+            "file": "src/app/components/test/test.service.ts",
+            "properties": [
+                {
+                    "name": "currentQuickFilters",
+                    "defaultValue": "new ReplaySubject<{}[] | null>(1)",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23
+                },
+                {
+                    "name": "test",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27
+                }
+            ],
+            "description": "",
+            "sourceCode": "import { Injectable, OnDestroy } from '@angular/core';\nimport { ReplaySubject } from 'rxjs';\nimport { map } from 'rxjs/operators';\n\n@Injectable()\nexport class TestService implements OnDestroy {\n  private currentQuickFilters = new ReplaySubject<{}[] | null>(1);\n\n  constructor() {\n    alert('Still fired ctor');\n\n    const quickFilterExpression = this.currentQuickFilters.pipe(\n      map((quickFilters) => {\n        if (quickFilters === null || !quickFilters.length) {\n          return null;\n        }\n\n        return {};\n      })\n    );\n  }\n\n  ngOnDestroy(): void {\n    alert('ngOnDestroy!');\n  }\n\n  test(): void {\n    alert('===> In service');\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 7
+            },
+            "type": "injectable"
+        }
+    ],
     "classes": [
         {
             "name": "AppPage",
@@ -44,8 +90,64 @@
     "directives": [],
     "components": [
         {
+            "name": "AnotherTestComponent",
+            "id": "component-AnotherTestComponent-5e3f49a83c253d79d9dd02247dd34679",
+            "file": "src/app/components/another-test/another-test.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-another-test",
+            "styleUrls": [
+                "./another-test.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./another-test.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-another-test',\n  templateUrl: './another-test.component.html',\n  styleUrls: ['./another-test.component.scss']\n})\nexport class AnotherTestComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./another-test.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>another-test works!</p>\n"
+        },
+        {
             "name": "AppComponent",
-            "id": "component-AppComponent-d8d890ed031dc2a940fab72a2df26092",
+            "id": "component-AppComponent-5cac7279656803ea45863975c577e31b",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -79,7 +181,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'material-examples';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'material-examples';\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -297,13 +399,17 @@
         },
         {
             "name": "TestComponent",
-            "id": "component-TestComponent-499a5ad1bc9552d559084bae58664902",
+            "id": "component-TestComponent-a27892d643b1843ef8c132c7556af6ef",
             "file": "src/app/components/test/test.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
-            "providers": [],
+            "providers": [
+                {
+                    "name": "TestService"
+                }
+            ],
             "selector": "app-test",
             "styleUrls": [],
             "styles": [],
@@ -314,17 +420,17 @@
                 {
                     "name": "label",
                     "defaultValue": "'This is a label'",
-                    "line": 22
+                    "line": 24
                 },
                 {
                     "name": "loading",
                     "defaultValue": "true",
-                    "line": 24
+                    "line": 26
                 },
                 {
                     "name": "testEnum",
                     "defaultValue": "TestValues.Primary",
-                    "line": 26,
+                    "line": 28,
                     "type": "TestValues"
                 }
             ],
@@ -337,7 +443,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30
+                    "line": 34
                 }
             ],
             "hostBindings": [],
@@ -345,7 +451,97 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport enum TestValues {\n  Primary,\n  Secondary,\n}\n\n@Component({\n  selector: 'app-test',\n  template: `\n    <p>\n      test works!\n    </p>\n\n    Label: {{ label }}\n    <br />\n    Loading: {{ loading }}\n  `,\n  styles: [],\n})\nexport class TestComponent implements OnInit {\n  @Input() label = 'This is a label';\n\n  @Input() loading = true;\n\n  @Input() testEnum: TestValues = TestValues.Primary;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { TestService } from './test.service';\n\nexport enum TestValues {\n  Primary,\n  Secondary,\n}\n\n@Component({\n  selector: 'app-test',\n  template: `\n    <p>\n      test works!\n    </p>\n\n    Label: {{ label }}\n    <br />\n    Loading: {{ loading }}\n  `,\n  styles: [],\n  providers: [TestService],\n})\nexport class TestComponent implements OnInit {\n  @Input() label = 'This is a label';\n\n  @Input() loading = true;\n\n  @Input() testEnum: TestValues = TestValues.Primary;\n\n  constructor(private testService: TestService) {\n    //  this.testService.test();\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "testService",
+                        "type": "TestService"
+                    }
+                ],
+                "line": 28,
+                "jsdoctags": [
+                    {
+                        "name": "testService",
+                        "type": "TestService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "TestWrapperComponent",
+            "id": "component-TestWrapperComponent-618e34515b9b331c9995228a7751efda",
+            "file": "src/app/components/test/test.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-test-wrapper",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<app-test></app-test>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "defaultValue": "'This is a label'",
+                    "line": 24,
+                    "inheritance": {
+                        "file": "TestComponent"
+                    }
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "true",
+                    "line": 26,
+                    "inheritance": {
+                        "file": "TestComponent"
+                    }
+                },
+                {
+                    "name": "testEnum",
+                    "defaultValue": "TestValues.Primary",
+                    "line": 28,
+                    "type": "TestValues",
+                    "inheritance": {
+                        "file": "TestComponent"
+                    }
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "inheritance": {
+                        "file": "TestComponent"
+                    }
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { moduleMetadata } from '@storybook/angular';\r\nimport { Meta, Story } from '@storybook/angular/types-6-0';\r\nimport { TestComponent } from './test.component';\r\nimport { TestService } from './test.service';\r\n\r\nconst testService = {\r\n  test(): void {\r\n    alert('New service');\r\n  },\r\n} as TestService;\r\n\r\n@Component({\r\n  selector: 'app-test-wrapper',\r\n  template: ` <app-test></app-test> `,\r\n  styles: [],\r\n})\r\nclass TestWrapperComponent extends TestComponent {\r\n  constructor() {\r\n    super(testService);\r\n  }\r\n}\r\n\r\nexport default {\r\n  title: 'Test Story',\r\n  component: TestComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      declarations: [TestWrapperComponent, TestComponent],\r\n      imports: [],\r\n    }),\r\n  ],\r\n} as Meta;\r\n\r\nconst Template: Story<TestComponent> = (args: TestComponent) => ({\r\n  component: TestComponent,\r\n  //  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  template: `<app-test-wrapper></app-test-wrapper>`,\r\n  props: args,\r\n});\r\n\r\nexport const Primary = Template.bind({});\r\nPrimary.args = {\r\n  loading: false,\r\n  label: 'Button',\r\n};\r\n\r\nexport const WithTemplate: Story<TestComponent> = (args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `\r\n    <app-test [label]=\"label\" [loading]=\"loading\"></app-test>\r\n`,\r\n  props: args,\r\n});\r\n\r\n// const listValues = convertEnumToList(TestValues);\r\n// WithTemplate.argTypes = {\r\n//   label: {\r\n//     control: { type: 'select', options: listValues },\r\n//   },\r\n// };\r\n// WithTemplate.args = {\r\n//   loading: false,\r\n//   label: 'Button',\r\n// };\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -353,11 +549,9 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 26
+                "line": 18
             },
-            "implements": [
-                "OnInit"
-            ]
+            "extends": "TestComponent"
         }
     ],
     "modules": [
@@ -449,17 +643,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Large",
@@ -468,14 +662,6 @@
                 "file": "src/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "listValues",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/test/test.stories.ts",
-                "type": "",
-                "defaultValue": "convertEnumToList(TestValues)"
             },
             {
                 "name": "LoggedIn",
@@ -586,7 +772,15 @@
                 "subtype": "variable",
                 "file": "src/app/components/test/test.stories.ts",
                 "type": "Story<TestComponent>",
-                "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  props: args,\r\n})"
+                "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  //  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  template: `<app-test-wrapper></app-test-wrapper>`,\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "testService",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/test/test.stories.ts",
+                "type": "",
+                "defaultValue": "{\r\n  test(): void {\r\n    alert('New service');\r\n  },\r\n} as TestService"
             },
             {
                 "name": "WithTemplate",
@@ -671,16 +865,6 @@
                     "type": "literal type"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -689,6 +873,16 @@
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -731,40 +925,6 @@
                     "file": "src/stories/Button.stories.ts",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
-                }
-            ],
-            "src/app/components/test/test.stories.ts": [
-                {
-                    "name": "listValues",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/test/test.stories.ts",
-                    "type": "",
-                    "defaultValue": "convertEnumToList(TestValues)"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/test/test.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/test/test.stories.ts",
-                    "type": "Story<TestComponent>",
-                    "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  props: args,\r\n})"
-                },
-                {
-                    "name": "WithTemplate",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/test/test.stories.ts",
-                    "type": "Story<TestComponent>",
-                    "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `\r\n    <app-test [label]=\"label\" [loading]=\"loading\"></app-test>\r\n`,\r\n  props: args,\r\n})"
                 }
             ],
             "src/stories/Header.stories.ts": [
@@ -827,6 +987,40 @@
                     "file": "src/app/stories/angular-material/mat-slider.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n    <mat-slider min=\"1\" max=\"100\" step=\"1\" value=\"1\">\r\n    </mat-slider>\r\n  `,\r\n})"
+                }
+            ],
+            "src/app/components/test/test.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "Story<TestComponent>",
+                    "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  //  template: `<app-test [label]=\"label\" [loading]=\"loading\"></app-test>`,\r\n  template: `<app-test-wrapper></app-test-wrapper>`,\r\n  props: args,\r\n})"
+                },
+                {
+                    "name": "testService",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "",
+                    "defaultValue": "{\r\n  test(): void {\r\n    alert('New service');\r\n  },\r\n} as TestService"
+                },
+                {
+                    "name": "WithTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/test/test.stories.ts",
+                    "type": "Story<TestComponent>",
+                    "defaultValue": "(args: TestComponent) => ({\r\n  component: TestComponent,\r\n  template: `\r\n    <app-test [label]=\"label\" [loading]=\"loading\"></app-test>\r\n`,\r\n  props: args,\r\n})"
                 }
             ]
         },
@@ -908,7 +1102,7 @@
         ]
     },
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -939,6 +1133,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/another-test/another-test.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AnotherTestComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/test/test.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -948,13 +1151,21 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/test/test.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "listValues",
+                "filePath": "src/app/components/test/test.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "TestService",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/test/test.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TestWrapperComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -973,6 +1184,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/test/test.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "testService",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

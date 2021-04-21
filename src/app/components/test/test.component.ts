@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TestService } from './test.service';
 
 export enum TestValues {
   Primary,
@@ -17,6 +18,7 @@ export enum TestValues {
     Loading: {{ loading }}
   `,
   styles: [],
+  providers: [TestService],
 })
 export class TestComponent implements OnInit {
   @Input() label = 'This is a label';
@@ -25,7 +27,16 @@ export class TestComponent implements OnInit {
 
   @Input() testEnum: TestValues = TestValues.Primary;
 
-  constructor() {}
+  constructor(private testService: TestService) {
+    //  this.testService.test();
+    this.test(3);
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //  throw new Error('Method not implemented.');
+  }
+
+  private test(val: string): void {
+    //
+  }
 }
