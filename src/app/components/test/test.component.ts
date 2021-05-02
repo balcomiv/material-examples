@@ -27,16 +27,16 @@ export class TestComponent implements OnInit {
 
   @Input() testEnum: TestValues = TestValues.Primary;
 
-  constructor(private testService: TestService) {
-    //  this.testService.test();
-    this.test(3);
-  }
+  // constructor(private testService: TestService) {
+  //   //  this.testService.test();
+  //   //  this.test(3);
+  // }
 
   ngOnInit(): void {
     //  throw new Error('Method not implemented.');
   }
 
-  private test(val: string): void {
-    //
-  }
+  // private test(val: string): void {
+  //   //
+  // }
 }

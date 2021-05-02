@@ -8,10 +8,10 @@ export class AppComponent {
   title = 'material-examples';
 
   constructor() {
-    this.test(3);
+    //  this.test(3);
   }
 
-  private test(val: string): void {
-    //
-  }
+  // private test(val: string): void {
+  //   //
+  // }
 }

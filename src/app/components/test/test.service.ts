@@ -18,6 +18,8 @@ export class TestService implements OnDestroy {
         return {};
       })
     );
+
+    console.log(quickFilterExpression);
   }
 
   ngOnDestroy(): void {

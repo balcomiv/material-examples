@@ -11,6 +11,6 @@ export class AnotherTestComponent {
   }
 
   private test(val: string): void {
-    //
+    console.log(val);
   }
 }
