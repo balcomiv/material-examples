@@ -2,9 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
-# Modifications
-
 ## Storybook
+
+### Troubleshooting
+
+- [Material Icons && Preview-Head](https://github.com/storybookjs/storybook/issues/6851)
+- [Index and Drag Size for table reorder](https://github.com/angular/components/issues/13770)
 
 ### Commands
 
@@ -25,10 +28,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - https://storybook.js.org/docs/react/writing-docs/introduction
 
-## Material
-
-- `ng add @angular/material`
-
 ## Cypress
 
 - https://github.com/briebug/cypress-schematic
@@ -37,9 +36,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## ESLint
 
-## Blogs
+## Material
+
+- `ng add @angular/material`
 
 - https://juristr.com/blog/2018/05/dynamic-UI-with-cdk-portals/#:~:text=angular%2Fcdk%20package.-,CDK%20Portals,exactly%20what%20we%20want%20%F0%9F%98%83.
 
 - https://stackoverflow.com/questions/51150193/angular-material-editable-table-using-formarray
 - https://stackblitz.com/edit/angular-material-editable-table-fazhbc?file=src%2Fapp%2Fapp.component.ts
+
+### Tables
+
+- https://anglebrackets.dev/index.php/2020/02/29/drag-n-drop-with-angular-materials-table-component/
+
+### Icons
+
+- https://www.digitalocean.com/community/tutorials/angular-custom-svg-icons-angular-material
+- https://anglebrackets.dev/index.php/category/mat-icon/
+
+## Misc Blogs
+
+- https://haseebmajid.dev/blog/storybooks-with-mdx#mdx
