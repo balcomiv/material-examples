@@ -14,18 +14,15 @@ export default {
       imports: [MatTableModule, DragDropModule, MatIconModule],
     }),
   ],
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 } as Meta;
 
-export const basic: Story = () => ({
+export const dragDrop: Story<DragDropComponent> = () => ({
   template: `
     <app-drag-drop></app-drag-drop>
  `,
-});
-
-export const withDragAndDrop: Story = () => ({
-  template: `
-   <app-drag-drop></app-drag-drop>
-`,
 });
 
 export const iconTest: Story = () => ({
