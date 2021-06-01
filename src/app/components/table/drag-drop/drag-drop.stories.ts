@@ -24,10 +24,3 @@ export const dragDrop: Story<DragDropComponent> = () => ({
     <app-drag-drop></app-drag-drop>
  `,
 });
-
-export const iconTest: Story = () => ({
-  template: `
-        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-        <mat-icon>reorder</mat-icon>
-    `,
-});
