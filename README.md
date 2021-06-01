@@ -14,6 +14,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `npx -p @storybook/cli sb init`
 - `npm i @storybook/angular`
 
+### Scripts
+
+- `"build-storybook": "npm run docs:json && build-storybook",`
+- `"build-storybook": "build-storybook -o docs-build -s ./stories/assets",`
+
 ### Help
 
 - https://storybook.js.org/docs/react/essentials/controls

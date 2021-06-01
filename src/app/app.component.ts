@@ -9,9 +9,10 @@ export class AppComponent {
 
   constructor() {
     //  this.test(3);
+    this.testFunc();
   }
 
-  // private test(val: string): void {
-  //   //
-  // }
+  testFunc(): void {
+    console.log('yep');
+  }
 }
