@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Storybook
 
+### Github Pages
+
+- https://dev.to/kouts/deploy-storybook-to-github-pages-3bij
+
 ### Troubleshooting
 
 - [Material Icons && Preview-Head](https://github.com/storybookjs/storybook/issues/6851)
@@ -26,6 +30,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - https://medium.com/loftbr/angular-storybook-6d8ae099ab96
 
 ### Documentation
+
+- [How to use Angular in MDX](https://github.com/storybookjs/storybook/issues/13941)
+- https://github.com/storybookjs/storybook/tree/master/addons/docs/angular#mdx
 
 - https://storybook.js.org/docs/react/writing-docs/doc-blocks (shows control categories)
 

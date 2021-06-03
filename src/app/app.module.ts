@@ -9,8 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DragDropComponent } from './components/table/drag-drop/drag-drop.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { MaterialDashboardComponent } from './schematic-examples/material-dashboard/material-dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 @NgModule({
-  declarations: [AppComponent, DragDropComponent, DialogComponent],
+  declarations: [AppComponent, DragDropComponent, DialogComponent, MaterialDashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +25,11 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatIconModule,
     MatTableModule,
     DragDropModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

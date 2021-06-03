@@ -86,7 +86,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-856d3b58db77baf33b49b4b9ea3fb904",
+            "id": "component-AppComponent-c9031fb9ead44da1068349b25085b27c",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -114,13 +114,22 @@
                     "line": 8
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "testFunc",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15
+                }
+            ],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'material-examples';\r\n\r\n  constructor() {\r\n    //  this.test(3);\r\n  }\r\n\r\n  // private test(val: string): void {\r\n  //   //\r\n  // }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'material-examples';\r\n\r\n  constructor() {\r\n    //  this.test(3);\r\n    this.testFunc();\r\n  }\r\n\r\n  testFunc(): void {\r\n    console.log('yep');\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -421,6 +430,73 @@
             "stylesData": ""
         },
         {
+            "name": "MaterialDashboardComponent",
+            "id": "component-MaterialDashboardComponent-cce44aa78532964ca7a91ee20709ec9d",
+            "file": "src/app/schematic-examples/material-dashboard/material-dashboard.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-material-dashboard",
+            "styleUrls": [
+                "./material-dashboard.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./material-dashboard.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "cards",
+                    "defaultValue": "this.breakpointObserver.observe(Breakpoints.Handset).pipe(\n    map(({ matches }) => {\n      if (matches) {\n        return [\n          { title: 'Card 1', cols: 1, rows: 1 },\n          { title: 'Card 2', cols: 1, rows: 1 },\n          { title: 'Card 3', cols: 1, rows: 1 },\n          { title: 'Card 4', cols: 1, rows: 1 }\n        ];\n      }\n\n      return [\n        { title: 'Card 1', cols: 2, rows: 1 },\n        { title: 'Card 2', cols: 1, rows: 1 },\n        { title: 'Card 3', cols: 1, rows: 2 },\n        { title: 'Card 4', cols: 1, rows: 1 }\n      ];\n    })\n  )",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Based on the screen size, switch from standard to one column per row </p>\n",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { map } from 'rxjs/operators';\nimport { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';\n\n@Component({\n  selector: 'app-material-dashboard',\n  templateUrl: './material-dashboard.component.html',\n  styleUrls: ['./material-dashboard.component.scss']\n})\nexport class MaterialDashboardComponent {\n  /** Based on the screen size, switch from standard to one column per row */\n  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(\n    map(({ matches }) => {\n      if (matches) {\n        return [\n          { title: 'Card 1', cols: 1, rows: 1 },\n          { title: 'Card 2', cols: 1, rows: 1 },\n          { title: 'Card 3', cols: 1, rows: 1 },\n          { title: 'Card 4', cols: 1, rows: 1 }\n        ];\n      }\n\n      return [\n        { title: 'Card 1', cols: 2, rows: 1 },\n        { title: 'Card 2', cols: 1, rows: 1 },\n        { title: 'Card 3', cols: 1, rows: 2 },\n        { title: 'Card 4', cols: 1, rows: 1 }\n      ];\n    })\n  );\n\n  constructor(private breakpointObserver: BreakpointObserver) {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".grid-container {\n  margin: 20px;\n}\n\n.dashboard-card {\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n}\n\n.more-button {\n  position: absolute;\n  top: 5px;\n  right: 10px;\n}\n\n.dashboard-card-content {\n  text-align: center;\n}\n",
+                    "styleUrl": "./material-dashboard.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver"
+                    }
+                ],
+                "line": 30,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"2\" rowHeight=\"350px\">\n    <mat-grid-tile *ngFor=\"let card of cards | async\" [colspan]=\"card.cols\" [rowspan]=\"card.rows\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            {{card.title}}\n            <button mat-icon-button class=\"more-button\" [matMenuTriggerFor]=\"menu\" aria-label=\"Toggle menu\">\n              <mat-icon>more_vert</mat-icon>\n            </button>\n            <mat-menu #menu=\"matMenu\" xPosition=\"before\">\n              <button mat-menu-item>Expand</button>\n              <button mat-menu-item>Remove</button>\n            </mat-menu>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n  </mat-grid-list>\n</div>\n"
+        },
+        {
             "name": "PageComponent",
             "id": "component-PageComponent-cca1a8911321fa17756ce90c90de65cc",
             "file": "src/stories/page.component.ts",
@@ -502,6 +578,9 @@
                         },
                         {
                             "name": "DragDropComponent"
+                        },
+                        {
+                            "name": "MaterialDashboardComponent"
                         }
                     ]
                 },
@@ -591,17 +670,25 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "generalUsage",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts",
+                "type": "Story<MaterialDashboardComponent>",
+                "defaultValue": "template.bind(\r\n  {}\r\n)"
             },
             {
                 "name": "home",
@@ -610,14 +697,6 @@
                 "file": "src/app/components/icons/icon.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n        <mat-icon>\r\n            home\r\n        </mat-icon>\r\n    `,\r\n})"
-            },
-            {
-                "name": "iconTest",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/table/drag-drop/drag-drop.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n        <mat-icon aria-hidden=\"false\" aria-label=\"Example home icon\">home</mat-icon>\r\n        <mat-icon>reorder</mat-icon>\r\n    `,\r\n})"
             },
             {
                 "name": "Large",
@@ -731,6 +810,14 @@
                 "defaultValue": "(args: DialogComponent) => ({\r\n  component: DialogComponent,\r\n  props: args,\r\n})"
             },
             {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts",
+                "type": "Story<MaterialDashboardComponent>",
+                "defaultValue": "(\r\n  args: MaterialDashboardComponent\r\n) => ({\r\n  template: `\r\n   <app-material-dashboard></app-material-dashboard>\r\n`,\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -830,14 +917,6 @@
                     "file": "src/app/components/table/drag-drop/drag-drop.stories.ts",
                     "type": "Story<DragDropComponent>",
                     "defaultValue": "() => ({\r\n  template: `\r\n    <app-drag-drop></app-drag-drop>\r\n `,\r\n})"
-                },
-                {
-                    "name": "iconTest",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/table/drag-drop/drag-drop.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n        <mat-icon aria-hidden=\"false\" aria-label=\"Example home icon\">home</mat-icon>\r\n        <mat-icon>reorder</mat-icon>\r\n    `,\r\n})"
                 }
             ],
             "src/app/components/table/drag-drop/drag-drop.component.ts": [
@@ -850,6 +929,16 @@
                     "defaultValue": "[\n  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },\n  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },\n  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },\n  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },\n  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },\n  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },\n  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },\n  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },\n  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },\n  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },\n]"
                 }
             ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -860,14 +949,22 @@
                     "defaultValue": "{\n  production: true\n}"
                 }
             ],
-            "src/environments/environment.ts": [
+            "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts": [
                 {
-                    "name": "environment",
+                    "name": "generalUsage",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "file": "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts",
+                    "type": "Story<MaterialDashboardComponent>",
+                    "defaultValue": "template.bind(\r\n  {}\r\n)"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts",
+                    "type": "Story<MaterialDashboardComponent>",
+                    "defaultValue": "(\r\n  args: MaterialDashboardComponent\r\n) => ({\r\n  template: `\r\n   <app-material-dashboard></app-material-dashboard>\r\n`,\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
             "src/app/components/icons/icon.stories.ts": [
@@ -1090,7 +1187,7 @@
         ]
     },
     "coverage": {
-        "count": 2,
+        "count": 3,
         "status": "low",
         "files": [
             {
@@ -1137,7 +1234,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1228,11 +1325,30 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/table/drag-drop/drag-drop.stories.ts",
+                "filePath": "src/app/schematic-examples/material-dashboard/material-dashboard.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MaterialDashboardComponent",
+                "coveragePercent": 33,
+                "coverageCount": "1/3",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "iconTest",
+                "name": "generalUsage",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/schematic-examples/material-dashboard/material-dashboard.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
