@@ -15,8 +15,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MaterialTableComponent } from './schematic-examples/material-table/material-table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
-  declarations: [AppComponent, DragDropComponent, DialogComponent, MaterialDashboardComponent],
+  declarations: [AppComponent, DragDropComponent, DialogComponent, MaterialDashboardComponent, MaterialTableComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +33,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatMenuModule,
     MatButtonModule,
     LayoutModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
