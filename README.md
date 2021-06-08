@@ -40,6 +40,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - https://storybook.js.org/docs/react/writing-docs/introduction
 
+- https://www.chromatic.com/blog/storybook-composition/
+
 ## Cypress
 
 - https://github.com/briebug/cypress-schematic
