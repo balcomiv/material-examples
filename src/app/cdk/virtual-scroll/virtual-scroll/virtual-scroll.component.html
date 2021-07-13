@@ -1,0 +1,32 @@
+Item Size: {{ itemSize }}
+
+<ng-container *ngIf="fixedStrategy; else autosizeStrategy">
+  <h2>Fixed</h2>
+  <cdk-virtual-scroll-viewport
+    [itemSize]="itemSize"
+    *ngIf="!wonky; else wonkySettings"
+  >
+    <div
+      class="item"
+      [style.height]="itemSize + 'px'"
+      *cdkVirtualFor="let item of items"
+    >
+      {{ item }}
+    </div>
+  </cdk-virtual-scroll-viewport>
+
+  <ng-template #wonkySettings>
+    <cdk-virtual-scroll-viewport [itemSize]="itemSize">
+      <div class="item" *cdkVirtualFor="let item of items">
+        {{ item }}
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </ng-template>
+</ng-container>
+
+<ng-template #autosizeStrategy>
+  <h2>AutoSize</h2>
+  <cdk-virtual-scroll-viewport autosize>
+    <div class="item" *cdkVirtualFor="let item of items">{{ item }}</div>
+  </cdk-virtual-scroll-viewport>
+</ng-template>

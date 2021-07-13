@@ -4,33 +4,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Storybook
 
-### Github Pages
+- [Storybook Composition](https://storybook.js.org/docs/react/workflows/storybook-composition)
+
+## Github Pages
 
 - https://dev.to/kouts/deploy-storybook-to-github-pages-3bij
 
-### Troubleshooting
+## Troubleshooting
 
 - [Material Icons && Preview-Head](https://github.com/storybookjs/storybook/issues/6851)
 - [Index and Drag Size for table reorder](https://github.com/angular/components/issues/13770)
 
-### Commands
+## Commands
 
 - `npx -p @angular/cli ng new <proj-name> --strict --routing --style=scss`
 - `npx sb init`
 - `ng add @briebug/cypress-schematic`
 
-### Scripts
+## Scripts
 
 - `"build-storybook": "npm run docs:json && build-storybook",`
 - `"build-storybook": "build-storybook -o docs-build -s ./stories/assets",`
 
-### Help
+## Help
 
 - https://storybook.js.org/docs/react/essentials/controls
 - https://www.npmjs.com/package/@storybook/angular (has that nice GIF)
 - https://medium.com/loftbr/angular-storybook-6d8ae099ab96
 
-### Documentation
+## Documentation
 
 - [How to use Angular in MDX](https://github.com/storybookjs/storybook/issues/13941)
 - https://github.com/storybookjs/storybook/tree/master/addons/docs/angular#mdx
