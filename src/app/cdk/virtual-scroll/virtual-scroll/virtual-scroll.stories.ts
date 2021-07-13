@@ -30,25 +30,54 @@ const template: Story<VirtualScrollComponent> = (
   args: VirtualScrollComponent
 ) => ({
   template: `
-   <app-virtual-scroll [fixedStrategy]="fixedStrategy" [itemSize]="itemSize"></app-virtual-scroll>
+   <app-virtual-scroll [fixedStrategy]="fixedStrategy" [itemSize]="itemSize" [actualItemSize]="actualItemSize"></app-virtual-scroll>
 `,
   props: {
     ...args,
   },
 });
 
-export const basic: Story<VirtualScrollComponent> = template.bind({});
-basic.args = {
+export const fixedStrategy: Story<VirtualScrollComponent> = template.bind({});
+fixedStrategy.args = {
   itemSize: 80,
+  actualItemSize: 80,
   fixedStrategy: true,
-  wonky: false,
+};
+
+export const autosizeStrategy: Story<VirtualScrollComponent> = template.bind(
+  {}
+);
+autosizeStrategy.args = {
+  fixedStrategy: false,
+};
+autosizeStrategy.argTypes = {
+  fixedStrategy: {
+    table: {
+      disable: true,
+    },
+  },
+  wonky: {
+    table: {
+      disable: true,
+    },
+  },
+  itemSize: {
+    table: {
+      disable: true,
+    },
+  },
+  actualItemSize: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 export const fixedStrategyWithDynamicallySizedItems: Story<VirtualScrollComponent> = (
   args: VirtualScrollComponent
 ) => ({
   template: `
-   <app-virtual-scroll [itemSize]="itemSize" [wonky]="true"></app-virtual-scroll>
+   <app-virtual-scroll [itemSize]="itemSize" [actualItemSize]="acutalItemSize" [wonky]="true"></app-virtual-scroll>
 `,
   props: {
     ...args,
@@ -56,6 +85,7 @@ export const fixedStrategyWithDynamicallySizedItems: Story<VirtualScrollComponen
 });
 fixedStrategyWithDynamicallySizedItems.args = {
   itemSize: 80,
+  actualItemSize: 80,
 };
 fixedStrategyWithDynamicallySizedItems.argTypes = {
   fixedStrategy: {
