@@ -11,9 +11,5 @@ module.exports = {
       title: "100 Angular Challenges",
       url: "https://balcomiv.github.io/gothinkster-angular-challenges",
     },
-    design_system: {
-      title: "Design System",
-      url: "https://5ccbc373887ca40020446347-yldsqjoxzb.chromatic.com",
-    },
   },
 };
