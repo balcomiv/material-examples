@@ -17,11 +17,7 @@ Item Size: {{ itemSize }}
 
   <ng-template #wonkySettings>
     <cdk-virtual-scroll-viewport [itemSize]="itemSize">
-      <div
-        class="item"
-        [style.height]="actualItemSize + 'px'"
-        *cdkVirtualFor="let item of items"
-      >
+      <div class="item" *cdkVirtualFor="let item of items">
         {{ item }}
       </div>
     </cdk-virtual-scroll-viewport>
