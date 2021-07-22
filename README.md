@@ -45,6 +45,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - https://www.chromatic.com/blog/storybook-composition/
 
+# Helpful Commands
+
+## Generate lazy loaded component/route
+
+- `ng g module --module=app.module --route=about about`
+
 ## Cypress
 
 - https://github.com/briebug/cypress-schematic
@@ -52,6 +58,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Strict Checks
 
 ## ESLint
+
+- `ng add @angular-eslint/schematics`
 
 ## Material
 
